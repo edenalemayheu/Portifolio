@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eden Alemayehu</title>
+
+  <style>
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background-image:
+        linear-gradient(
+          rgba(15, 23, 42, 0.88),
+          rgba(15, 23, 42, 0.88)
+        ),
+        url("img4.jpg");
+
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+
+      color: wheat;
+      line-height: 1.7;
+    }
+
+
+    /* ── NAVBAR ── */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background-color: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2.5rem;
+      padding: 1.1rem 2rem;
+      flex-wrap: wrap;
+    }
+
+    .navbar a {
+      color: #38bdf8;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      transition: color 0.25s, text-shadow 0.25s;
+    }
+
+    .navbar a:hover {
+      color: white;
+      text-shadow: 0 0 10px #38bdf8;
+    }
+
+
+    /* ── SHARED ── */
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 5rem 2rem;
+    }
+
+    h2 {
+      color: #38bdf8;
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 2.2rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+
+    /* ── HOME ── */
+
+    #home {
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 3rem;
+      flex-wrap: wrap-reverse;
+    }
+
+    .home-content {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .home-content .greeting {
+      font-size: 1.1rem;
+      color: #38bdf8;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 0.6rem;
+    }
+
+    .home-content h1 {
+      font-size: 3rem;
+      color: cornsilk;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+
+    .home-content h1 span {
+      color: #38bdf8;
+    }
+
+    .home-content .tagline {
+      font-size: 1.15rem;
+      color: #cbd5e1;
+      max-width: 520px;
+      margin-bottom: 2rem;
+    }
+
+    .cta-row {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 11px 26px;
+      border-radius: 30px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      transition: 0.25s;
+      border: none;
+    }
+
+    .btn-primary {
+      background: #38bdf8;
+      color: #0f172a;
+    }
+
+    .btn-primary:hover {
+      background: white;
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: #38bdf8;
+      border: 2px solid #38bdf8;
+    }
+
+    .btn-outline:hover {
+      background: #38bdf8;
+      color: #0f172a;
+    }
+
+
+    /* ── PROFILE IMAGE ── */
+
+    .profile-img-container {
+      display: flex;
+      justify-content: center;
+    }
+
+    .profile-img {
+      width: 240px;
+      height: 320px;
+      object-fit: cover;
+      border-radius: 20px;
+      border: 3px solid #38bdf8;
+      box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.5),
+        0 0 20px rgba(56, 189, 248, 0.25);
+    }
+
+
+    /* ── ABOUT ── */
+
+    #about {
+      background-color: rgba(255, 255, 255, 0.03);
+      padding: 3rem;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      margin-bottom: 4rem;
+    }
+
+    #about p {
+      text-align: center;
+      color: #e2e8f0;
+      font-size: 1.1rem;
+      max-width: 750px;
+      margin: 0 auto 1.2rem;
+    }
+
+    #about p:last-child {
+      margin-bottom: 0;
+    }
+
+
+    /* ── SKILLS ── */
+
+    #skills {
+      margin-bottom: 5rem;
+    }
+
+    .skill-container {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .skill-card {
+      width: 220px;
+      padding: 1.8rem;
+      background: white;
+      color: black;
+      border-radius: 14px;
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+    }
+
+    .skill-card h3 {
+      color: #0f172a;
+      font-size: 1.1rem;
+    }
+
+    .note {
+      display: none;
+      margin-top: 0.9rem;
+      color: #475569;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+
+    /* ── PROJECTS ── */
+
+    #projects {
+      margin-bottom: 5rem;
+    }
+
+    .project-container {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .project-card {
+      width: 310px;
+      background: white;
+      color: #1e293b;
+      padding: 1.8rem;
+      border-radius: 14px;
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.28);
+      transition: transform 0.25s, box-shadow 0.25s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.38);
+    }
+
+    .project-card h3 {
+      color: #0f172a;
+      font-size: 1rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .project-card p {
+      font-size: 0.92rem;
+      color: #475569;
+      margin-bottom: 0.5rem;
+      flex: 1;
+    }
+
+    .tech-tag {
+      display: inline-block;
+      background: #e0f2fe;
+      color: #0369a1;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin: 4px 3px 0 0;
+    }
+
+    .project-card a {
+      display: block;
+      margin-top: 1.2rem;
+      padding: 10px;
+      background: #0f172a;
+      color: white;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: background 0.25s;
+    }
+
+    .project-card a:hover {
+      background: #0284c7;
+    }
+
+
+    /* ── CONTACT ── */
+
+    #contact {
+      text-align: center;
+      padding-bottom: 5rem;
+    }
+
+    #contact .contact-note {
+      color: #94a3b8;
+      font-size: 1rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .contact-links a {
+      padding: 11px 26px;
+      background-color: rgba(255, 255, 255, 0.04);
+      border: 1.5px solid #38bdf8;
+      color: #38bdf8;
+      font-weight: 600;
+      font-size: 1rem;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: 0.25s;
+    }
+
+    .contact-links a:hover {
+      background-color: #38bdf8;
+      color: #0f172a;
+      box-shadow: 0 0 16px rgba(56, 189, 248, 0.4);
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <nav class="navbar">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+
+  <main class="container">
+
+
+    <!-- ── HOME ── -->
+
+    <section id="home">
+
+      <div class="home-content">
+        <p class="greeting">Hey there, I'm</p>
+
+        <h1 id="myName">Eden Alemayehu</h1>
+
+        <p class="tagline">
+          Software engineering student who actually enjoys debugging at midnight.
+          I build things with code — from C++ systems to full-stack web apps — and I'm
+          always working on the next idea.
+        </p>
+
+        <div class="cta-row">
+          <a href="#projects" class="btn btn-primary">See My Work</a>
+          <a href="#contact" class="btn btn-outline">Get in Touch</a>
+        </div>
+      </div>
+
+      <div class="profile-img-container">
+        <img src="gem2.jpg" alt="Eden Alemayehu" class="profile-img">
+      </div>
+
+    </section>
+
+
+    <!-- ── ABOUT ── -->
+
+    <section id="about">
+      <h2>About Me</h2>
+
+      <p>
+        I'm a software engineering student at AASTU and I've been hooked on building things
+        since I first got my hands on a compiler. My background started with C++ — OOP, data
+        structures, the works — and from there I picked up Python, MySQL, and eventually
+        made my way into web development.
+      </p>
+      <p>
+        Right now my focus is full-stack: I like the challenge of connecting a clean frontend
+        to a solid backend and making them actually talk to each other. Outside of coursework
+        I spend a lot of time on personal projects, most of which you can find on my GitHub.
+      </p>
+      <p>
+        When I'm not coding I'm probably watching football or overthinking a system design
+        problem I don't need to solve yet.
+      </p>
+    </section>
+
+
+    <!-- ── SKILLS ── -->
+
+    <section id="skills">
+      <h2>Skills</h2>
+
+      <div class="skill-container">
+
+        <div class="skill-card" onclick="toggleNote(this)">
+          <h3>C++</h3>
+          <p class="note">
+            This was my first real language. I've used it for OOP, data structures,
+            file handling, and algorithm problems. It gave me a solid mental model
+            for how things work under the hood.
+          </p>
+        </div>
+
+        <div class="skill-card" onclick="toggleNote(this)">
+          <h3>Python</h3>
+          <p class="note">
+            Mainly used for scripting, quick experiments, and competitive-style
+            problem solving. Python is where I go when I want to prototype something fast.
+          </p>
+        </div>
+
+        <div class="skill-card" onclick="toggleNote(this)">
+          <h3>MySQL</h3>
+          <p class="note">
+            Comfortable writing queries, designing schemas, and thinking about
+            relational data. Spent a good chunk of time on a group database
+            project last semester.
+          </p>
+        </div>
+
+        <div class="skill-card" onclick="toggleNote(this)">
+          <h3>HTML / CSS / JS</h3>
+          <p class="note">
+            The trio I use to actually put things on the internet. I can go from
+            a rough wireframe to a styled, interactive page — and I've started
+            pairing it with Node.js on the backend.
+          </p>
+        </div>
+
+        <div class="skill-card" onclick="toggleNote(this)">
+          <h3>Node.js</h3>
+          <p class="note">
+            Building simple REST APIs with Express. This portfolio uses one —
+            it's nothing fancy but it does the job and I'm building on it.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ── PROJECTS ── -->
+
+    <section id="projects">
+      <h2>Projects</h2>
+
+      <div class="project-container">
+
+        <div class="project-card">
+          <h3>Rental House Availability &amp; Price Checker</h3>
+          <p>
+            Built this to solve a real problem: finding and comparing rental
+            listings without jumping between a dozen pages. It handles availability
+            checks, pricing, and stores everything in flat files.
+          </p>
+          <div>
+            <span class="tech-tag">C++</span>
+            <span class="tech-tag">OOP</span>
+            <span class="tech-tag">File Handling</span>
+          </div>
+          <a href="https://github.com/edenalemayheu/cpp-rental-house-system" target="_blank">
+            View on GitHub
+          </a>
+        </div>
+
+        <div class="project-card">
+          <h3>Smart Study Planner</h3>
+          <p>
+            A web-based planner that helps students break down their study sessions,
+            set priorities, and actually stick to a schedule. Built this during
+            exam season — very much needed it myself.
+          </p>
+          <div>
+            <span class="tech-tag">HTML</span>
+            <span class="tech-tag">CSS</span>
+            <span class="tech-tag">JavaScript</span>
+          </div>
+          <a href="https://github.com/edenalemayheu/Smart-study-planner-" target="_blank">
+            View on GitHub
+          </a>
+        </div>
+
+        <div class="project-card">
+          <h3>Bus Reservation System</h3>
+          <p>
+            A console app that lets users pick seats, book trips, and manage
+            reservation records. Focused on clean class design and persistent
+            storage with file handling.
+          </p>
+          <div>
+            <span class="tech-tag">C++</span>
+            <span class="tech-tag">OOP</span>
+            <span class="tech-tag">File Handling</span>
+          </div>
+          <a href="https://github.com/edenalemayheu/Bus-reservation-system" target="_blank">
+            View on GitHub
+          </a>
+        </div>
+
+        <div class="project-card">
+          <h3>Rental System Database <span style="font-weight:400;font-size:0.85rem;">(Group)</span></h3>
+          <p>
+            A group project where I handled the database design side — modeling
+            entities, defining relationships, writing the queries, and making sure
+            the schema actually matched how the app used the data.
+          </p>
+          <div>
+            <span class="tech-tag">MySQL</span>
+            <span class="tech-tag">DB Design</span>
+            <span class="tech-tag">OOP</span>
+          </div>
+          <a href="https://github.com/Aash77-b/AASTU-DB-Project-Group--4-" target="_blank">
+            View on GitHub
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ── CONTACT ── -->
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p class="contact-note">
+        Open to internships, collabs, or just a good conversation about code.
+      </p>
+
+      <div class="contact-links">
+        <a href="mailto:edenalemayehu473@gmail.com">Gmail</a>
+        <a href="https://www.linkedin.com/in/edenalex0455/" target="_blank">LinkedIn</a>
+        <a href="https://github.com/edenalemayheu" target="_blank">GitHub</a>
+      </div>
+    </section>
+
+
+  </main>
+
+
+  <script>
+    function toggleNote(card) {
+      const note = card.querySelector(".note");
+      note.style.display = note.style.display === "block" ? "none" : "block";
+    }
+  </script>
+
+
+</body>
+</html>
